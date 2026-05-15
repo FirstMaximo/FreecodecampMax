@@ -70,7 +70,7 @@ const Browser = require('zombie');
 
 suite('e2e testing with zombie.js', function () {
   const browser = new Browser();
-  browser.site = 'http://127.0.0.1:3000/';
+  browser.site = 'https://boilerplate-mochachai-production-79b4.up.railway.app/';
 
   suiteSetup(function (done) {
     return browser.visit('/', done);
