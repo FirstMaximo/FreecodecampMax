@@ -67,10 +67,11 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
+Browser.site = 'https://boilerplate-mochachai-production-79b4.up.railway.app';
 
 suite('e2e testing with zombie.js', function () {
   const browser = new Browser();
-  browser.site = 'https://boilerplate-mochachai-production-79b4.up.railway.app/';
+
 
   suiteSetup(function (done) {
     return browser.visit('/', done);
