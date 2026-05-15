@@ -1,4 +1,4 @@
-const chai = require('chai');
+﻿const chai = require('chai');
 const assert = chai.assert;
 const server = require('../server');
 const chaiHttp = require('chai-http');
@@ -66,12 +66,11 @@ suite('Functional Tests', function () {
 
 });
 
-
 const Browser = require('zombie');
 
 suite('e2e testing with zombie.js', function () {
   const browser = new Browser();
-  browser.site = 'http://127.0.0.1:3000/';
+  browser.site = 'http://localhost:3000/';
 
   suiteSetup(function (done) {
     return browser.visit('/', done);
