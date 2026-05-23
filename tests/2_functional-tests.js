@@ -80,14 +80,14 @@ suite('Functional Tests with Zombie.js', function () {
 
   suite('Headless browser', function () {
     test('should have a working "site" property', function () {
-      browser.site = 'http://localhost:3000';
+      browser.site = 'http://127.0.0.1:3000';
       assert.isNotNull(browser.site);
     });
   });
 
   suite('"Famous Italian Explorers" form', function () {
     suiteSetup(function(done) {
-      browser.visit('http://localhost:3000', done);
+      browser.visit('http://127.0.0.1:3000', done);
     });
 
     // #5
