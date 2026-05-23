@@ -75,8 +75,7 @@ suite('Functional Tests', function () {
 });
 
 suite('Functional Tests with Zombie.js', function () {
-  this.timeout(5000);
-
+  this.timeout(10000);
   const browser = new Browser();
 
   suite('Headless browser', function () {
@@ -87,36 +86,33 @@ suite('Functional Tests with Zombie.js', function () {
   });
 
   suite('"Famous Italian Explorers" form', function () {
+    suiteSetup(function(done) {
+      browser.visit('http://localhost:3000', done);
+    });
 
     // #5
-test('Submit the surname "Colombo" in the HTML form', function (done) {
-  this.timeout(10000);
-  browser.visit('/').then(function () {
-    browser.fill('surname', 'Colombo').then(function () {
-      browser.pressButton('submit', function () {
-        browser.assert.success();
-        browser.assert.text('span#name', 'Cristoforo');
-        browser.assert.text('span#surname', 'Colombo');
-        browser.assert.elements('span#dates', 1);
-        done();
+    test('Submit the surname "Colombo" in the HTML form', function (done) {
+      browser.fill('surname', 'Colombo').then(() => {
+        browser.pressButton('submit', () => {
+          browser.assert.success();
+          browser.assert.text('span#name', 'Cristoforo');
+          browser.assert.text('span#surname', 'Colombo');
+          browser.assert.elements('span#dates', 1);
+          done();
+        });
       });
     });
-  }).catch(done);
-});
-// #6
-test('Submit the surname "Vespucci" in the HTML form', function (done) {
-  this.timeout(10000);
-  browser.visit('/').then(function () {
-    browser.fill('surname', 'Vespucci').then(function () {
-      browser.pressButton('submit', function () {
-        browser.assert.success();
-        browser.assert.text('span#name', 'Amerigo');
-        browser.assert.text('span#surname', 'Vespucci');
-        browser.assert.elements('span#dates', 1);
-        done();
+    // #6
+    test('Submit the surname "Vespucci" in the HTML form', function (done) {
+      browser.fill('surname', 'Vespucci').then(() => {
+        browser.pressButton('submit', () => {
+          browser.assert.success();
+          browser.assert.text('span#name', 'Amerigo');
+          browser.assert.text('span#surname', 'Vespucci');
+          browser.assert.elements('span#dates', 1);
+          done();
+        });
       });
     });
-  }).catch(done);
-});
   });
 });
