@@ -91,7 +91,7 @@ suite('Functional Tests with Zombie.js', function () {
     // #5
 test('Submit the surname "Colombo" in the HTML form', function (done) {
   this.timeout(10000);
-  browser.visit('http://127.0.0.1:3000/').then(function () {
+  browser.visit('/').then(function () {
     browser.fill('surname', 'Colombo').then(function () {
       browser.pressButton('submit', function () {
         browser.assert.success();
@@ -106,7 +106,7 @@ test('Submit the surname "Colombo" in the HTML form', function (done) {
 // #6
 test('Submit the surname "Vespucci" in the HTML form', function (done) {
   this.timeout(10000);
-  browser.visit('http://127.0.0.1:3000/').then(function () {
+  browser.visit('/').then(function () {
     browser.fill('surname', 'Vespucci').then(function () {
       browser.pressButton('submit', function () {
         browser.assert.success();
